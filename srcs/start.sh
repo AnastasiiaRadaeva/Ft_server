@@ -2,8 +2,8 @@
 
 # config nginx
 #mv ./nginx.conf /etc/nginx/
-mkdir /var/www/your_domain
-chown -R $USER:$USER /var/www/your_domain
+mkdir /var/www/server
+chown -R $USER:$USER /var/www/server
 mv ./your_domain /etc/nginx/sites-available/
 ln -s /etc/nginx/sites-available/your_domain /etc/nginx/sites-enabled/
 rm /etc/nginx/sites-enabled/default
@@ -17,11 +17,11 @@ service php7.3-fpm start
 
 # mysql
 service mysql start
-mysql CREATE USER 'root'@'localhost';
-mysql CREATE DATABASE wordpress;
-mysql GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'localhost';
-mysql UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE user='root';
-mysql FLUSH PRIVILEGES;
+mysql -u root --skip-password CREATE DATABASE wordpress;
+mysql -u root --skip-password GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'localhost' WITH GRANT OPTION;
+mysql -u root --skip-password UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE user='root';
+mysql -u root --skip-password FLUSH PRIVILEGES;
+#mysql wordpress -u root < /root/wordpress.sql
 
 # phpMyAdmin
 wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
@@ -32,9 +32,9 @@ rm phpMyAdmin-4.9.0.1-all-languages.tar.gz
 # wordpress
 wget https://wordpress.org/latest.tar.gz
 tar -xzvf latest.tar.gz
-mv wordpress /var/www/your_domain
+mv wordpress /var/www/server
 rm latest.tar.gz
-mv wp-config.php /var/www/your_domain
+mv wp-config.php /var/www/server
 
 # restart
 service php7.3-fpm restart 
