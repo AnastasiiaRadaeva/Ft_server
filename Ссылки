@@ -2,29 +2,5 @@ https://timeweb.com/ru/community/articles/kak-ustanovit-nginx-na-debian-10-1
 https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mariadb-php-lemp-stack-on-debian-10
 https://www.digitalocean.com/community/tutorials/how-to-install-phpmyadmin-from-source-debian-10
 https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lemp-nginx-mariadb-and-php-on-debian-10
-https://github.com/kukinpower/ft_server#%EF%B8%8F-research
-
-server {
-    listen 80;
-    listen [::]:80;
-    server_name localhost;
-
-    listen 443 ssl;
-    listen [::]:443 ssl;
-
-    root /var/www;
-
-    index index.php index.html index.htm;
-
-    ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
-    ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
-
-    location / {
-        autoindex on;
-        #try_files $uri $uri/ =404;
-    }
-    location ~ \.php$ {
-        include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php7.3-fpm.sock;
-    }
-}
+https://github.com/kukinpower/ft_server#%EF%B8%8F-research - проект пира
+https://www.youtube.com/watch?v=fqIfZx6PF3g - видео про настройку nginx
