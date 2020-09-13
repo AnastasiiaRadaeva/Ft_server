@@ -26,7 +26,7 @@ mysql -u root --skip-password FLUSH PRIVILEGES;
 # phpMyAdmin
 wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
 tar xzf phpMyAdmin-4.9.0.1-all-languages.tar.gz
-mv phpMyAdmin-4.9.0.1-all-languages /var/www/your_domain/phpMyAdmin
+mv phpMyAdmin-4.9.0.1-all-languages /var/www/server/phpMyAdmin
 rm phpMyAdmin-4.9.0.1-all-languages.tar.gz
 
 # wordpress
