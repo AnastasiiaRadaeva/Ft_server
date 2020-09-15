@@ -8,6 +8,7 @@ WORKDIR /var/www/server
 RUN apt-get -y install nginx \
 mariadb-server \
 php7.3 php-cli php-fpm php-mbstring php-mysql php-curl \
+php-gd php-intl php-soap php-xml php-xmlrpc \
 php-fpm php-mysql \
 wget curl \
 openssl \
@@ -16,6 +17,7 @@ vim
 COPY ./srcs/start.sh ./
 COPY ./srcs/your_domain ./
 COPY ./srcs/wp-config.php ./
+COPY ./srcs/autoindex.sh ./
 
 RUN chown -R www-data:www-data /var/www/*
 RUN chmod -R 777 /var/*
