@@ -10,7 +10,7 @@ mariadb-server \
 php7.3 php-cli php-fpm php-mbstring php-mysql php-curl \
 php-gd php-intl php-soap php-xml php-xmlrpc \
 php-fpm php-mysql \
-wget curl \
+wget \
 openssl \
 vim
 
@@ -18,6 +18,7 @@ COPY ./srcs/start.sh ./
 COPY ./srcs/your_domain ./
 COPY ./srcs/wp-config.php ./
 COPY ./srcs/autoindex.sh ./
+COPY ./srcs/ft_server_database.sql ./
 
 RUN chown -R www-data:www-data /var/www/*
 RUN chmod -R 777 /var/*

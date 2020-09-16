@@ -29,20 +29,6 @@ mysql -e "CREATE USER 'kbatwoma'@'localhost' IDENTIFIED BY 'root';"
 mysql -e "CREATE DATABASE ft_server_database DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;;"
 mysql -e "GRANT ALL ON ft_server_database.* TO 'kbatwoma'@'localhost' WITH GRANT OPTION;"
 mysql -e "FLUSH PRIVILEGES;"
-#mysql ft_server_database -e < ft_server_database.sql
-#mysql wordpress -u root < ft_server_database.sql
-
-# wordpress
-wpurl="localhost"
-wptitle="ft_server by kbatwoma"
-wpemail="kbatwoma@student.21-school.ru"
-wpuser="kbatwoma"
-wppass="Visokoprevoschoditelstvo27."
-curl -d "weblog_title=$wptitle&user_name=$wpuser&admin_password=$wppass&admin_password2=$wppass&admin_email=$wpemail" -k https://$wpurl/wp-admin/install.php?step=2  > /dev/null
-
-# restart
-#service php7.3-fpm restart 
-#service nginx restart
-#service mysql restart
+mysql ft_server_database -u root < ft_server_database.sql
 
 bash
